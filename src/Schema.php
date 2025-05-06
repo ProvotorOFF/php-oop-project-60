@@ -9,7 +9,7 @@ abstract class Schema
     {
     }
 
-    public function required(): self
+    public function required(): static
     {
         if (isset($this->rules['required'])) {
             unset($this->rules['required']);
