@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexlet\Code;
+namespace Hexlet\Validator;
 
 class NumberSchema extends Schema
 {
