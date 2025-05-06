@@ -20,7 +20,6 @@ class Validator
         return new ArraySchema($this->validators['array'] ?? []);
     }
 
-
     public function addValidator(string $type, string $name, callable $fn): void
     {
         $this->validators[$type][$name] = $fn;
