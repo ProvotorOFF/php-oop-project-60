@@ -5,6 +5,7 @@ namespace Hexlet\Code;
 abstract class Schema
 {
     public array $rules = [];
+    public function __construct(private array $customValidators = []) {}
 
     public function required(): self
     {
@@ -24,12 +25,26 @@ abstract class Schema
         }
 
         foreach ($this->rules as $rule) {
-            if (!$rule($value)) {
-                return false;
+            if (is_callable($rule)) {
+                if (!$rule($value)) {
+                    return false;
+                }
+            } elseif (is_array($rule) && is_callable($rule[0])) {
+                [$fn, $args] = $rule;
+                if (!$fn($value, ...$args)) {
+                    return false;
+                }
             }
         }
 
         return true;
+    }
+
+    public function test(string $name, ...$args): self
+    {
+        $fn = $this->customValidators[$name];
+        $this->rules[] = [$fn, $args];
+        return $this;
     }
 
     abstract protected function typeHint(mixed $value): bool;
