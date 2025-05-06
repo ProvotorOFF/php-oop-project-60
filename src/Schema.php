@@ -19,7 +19,7 @@ abstract class Schema
         return $this;
     }
 
-    public function isValid($value): bool
+    public function isValid(mixed $value): bool
     {
 
         if (!$this->typeHint($value)) {
@@ -42,7 +42,7 @@ abstract class Schema
         return true;
     }
 
-    public function test(string $name, ...$args): self
+    public function test(string $name, mixed ...$args): self
     {
         $fn = $this->customValidators[$name];
         $this->rules[] = [$fn, $args];

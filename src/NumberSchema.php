@@ -18,7 +18,7 @@ class NumberSchema extends Schema
 
     protected function typeHint(mixed $value): bool
     {
-        return is_numeric($value) || !$value;
+        return is_numeric($value) || !(bool)$value;
     }
 
     protected function setRequired(): void

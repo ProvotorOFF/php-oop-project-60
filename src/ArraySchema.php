@@ -6,7 +6,7 @@ class ArraySchema extends Schema
 {
     protected function typeHint(mixed $value): bool
     {
-        return is_array($value) || !$value;
+        return is_array($value) || !(bool)$value;
     }
 
     protected function setRequired(): void

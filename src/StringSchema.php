@@ -18,11 +18,11 @@ class StringSchema extends Schema
 
     protected function typeHint(mixed $value): bool
     {
-        return is_string($value) || !$value;
+        return is_string($value) || !(bool)$value;
     }
 
     protected function setRequired(): void
     {
-        $this->rules['required'] = fn($value) => $value !== null && mb_strlen($value);
+        $this->rules['required'] = fn($value) => $value !== null && (bool)mb_strlen($value);
     }
 }
