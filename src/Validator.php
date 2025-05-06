@@ -13,4 +13,9 @@ class Validator
     {
         return new NumberSchema();
     }
+
+    public function array(): ArraySchema
+    {
+        return new ArraySchema();
+    }
 }

@@ -4,7 +4,7 @@ namespace Hexlet\Code;
 
 abstract class Schema
 {
-    protected array $rules = [];
+    public array $rules = [];
 
     public function required(): self
     {

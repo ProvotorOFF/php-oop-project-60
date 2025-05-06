@@ -6,7 +6,7 @@ class NumberSchema extends Schema
 {
     public function positive(): self
     {
-        $this->rules['positive'] = fn($value) => $value > 0;
+        $this->rules['positive'] = fn($value) => $value === null || $value > 0;
         return $this;
     }
 
