@@ -4,7 +4,6 @@ namespace Hexlet\Validator;
 
 class StringSchema extends Schema
 {
-
     public function minLength(int $length): self
     {
         $this->rules['minLength'] = fn($value) => mb_strlen($value) >= $length;
@@ -17,7 +16,7 @@ class StringSchema extends Schema
         return $this;
     }
 
-    protected function typeHint(mixed $value): bool 
+    protected function typeHint(mixed $value): bool
     {
         return is_string($value) || !$value;
     }

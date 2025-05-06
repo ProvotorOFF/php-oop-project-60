@@ -5,7 +5,9 @@ namespace Hexlet\Validator;
 abstract class Schema
 {
     public array $rules = [];
-    public function __construct(private array $customValidators = []) {}
+    public function __construct(private array $customValidators = [])
+    {
+    }
 
     public function required(): self
     {

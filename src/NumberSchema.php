@@ -16,7 +16,7 @@ class NumberSchema extends Schema
         return $this;
     }
 
-    protected function typeHint(mixed $value): bool 
+    protected function typeHint(mixed $value): bool
     {
         return is_numeric($value) || !$value;
     }
@@ -25,5 +25,4 @@ class NumberSchema extends Schema
     {
         $this->rules['required'] = fn($value) => $value !== null;
     }
-    
 }
